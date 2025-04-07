@@ -1,5 +1,33 @@
+class Email:
+    def __init__(self, from_email, to_email, subject, body):
+        self.from_email = from_email
+        self.to_email = to_email
+        self.subject = subject
+        self.body = body
+        self.is_read = False
 
+    
+    def get_summary(self):
+        return f"From: {self.from_email}\n To: {self.to_email}\n Subject: {self.subject}"
+    
+    def get_full_content(self):
+        return f"{self.get_summary()}\nBody: {self.body}"
+    
+    def mark_as_read(self):
+        self.is_read = True
 
+    def archive(self):
+        print("Archived Email ")
+
+    def delete(self):
+        print("Deleted Email ")
+
+    def moveMail(self):
+        print(f"email moved to {folder_name} ")
+        pass
+
+    def snooze(self):
+        print("Email snoozed temporarily ")
 
 def Inbox():
     pass
@@ -51,19 +79,6 @@ while True:
     if text == "Exit":
         print("Done with Emails ")
         break
-    
-    from_email_address = input("Enter From email address: ")
-    to_email_address = input("Enter To email address: ")
-    subject = input("Enter the subject of the email: ")
-    body = input("Enter body of the email: ")
-
-    email_content = " Email From: " + from_email_address + " \n " + "TO: " + to_email_address + " \n " + "Subject: " + subject + " \n " + "Body: " + body
-
-    # this will be the email storage of all emails
-    email_storage[index] = email_content
-
-
-    index += 1
 
 
 for k, v in email_storage.items():
